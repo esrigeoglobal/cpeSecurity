@@ -23,7 +23,7 @@ security content in all the commonly used formats.
 
 ![NIST logo](docs/readme_images/nist_logo.svg "NIST logo") &nbsp; &nbsp; ![Ansible logo](docs/readme_images/ansible_logo.svg "Ansible logo") &nbsp; &nbsp; ![Bash logo](docs/readme_images/bash_logo.png "Bash logo")
 
-*"SCAP content"* refers to documents  in the *XCCDF*, *OVAL* and
+*"SPE Security"* refers to documents  in the *XCCDF*, *OVAL* and
 *SCAP source data stream* formats.  These documents can be presented
 in different forms and by different organizations to meet their security
 automation and technical implementation needs.  For general use, we
