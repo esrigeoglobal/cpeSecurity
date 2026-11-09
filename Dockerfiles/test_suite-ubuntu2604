@@ -1,5 +1,5 @@
 # This Dockerfile is a minimal example for a Ubuntu 24.04 test suite target container.
-FROM ubuntu:26.04
+FROM alpine:latest
 
 ENV AUTH_KEYS=/root/.ssh/authorized_keys
 
