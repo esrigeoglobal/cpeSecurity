@@ -9,14 +9,6 @@
 # down the builds!
 #
 #
-# Avoid input output overlap
-# ============================================================================
-#
-# If there is any overlap in inputs and/or outputs of build targets the build
-# system will needlessly rebuild the target every time you run the build.
-# Please avoid this because it slows down incremental builds. Incremental
-# builds are done all the time by SSG developers so it makes sense to have
-# them as fast as possible.
 #
 #
 # Wrapper targets
@@ -186,18 +178,18 @@ endmacro()
 # Extract rule-variable mapping from built OVAL content
 # This creates a JSON file mapping each rule to the variables it uses
 macro(ssg_extract_rule_variable_mapping PRODUCT)
-    add_custom_command(
-        OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/rule_variable_mapping.json"
-        COMMAND env "PYTHONPATH=$ENV{PYTHONPATH}" "${Python_EXECUTABLE}" "${SSG_BUILD_SCRIPTS}/extract_rule_variable_mapping.py" "${PRODUCT}" "${CMAKE_BINARY_DIR}" "${CMAKE_CURRENT_BINARY_DIR}/rule_variable_mapping.json"
-        DEPENDS generate-internal-templated-content-${PRODUCT} "${CMAKE_CURRENT_BINARY_DIR}/templated-content-${PRODUCT}"
-        DEPENDS ${PRODUCT}-compile-all "${CMAKE_CURRENT_BINARY_DIR}/ssg_build_compile_all-${PRODUCT}"
-        COMMENT "[${PRODUCT}-content] extracting rule-variable mapping"
-    )
-    add_custom_target(
-        generate-${PRODUCT}-rule-variable-mapping
-        DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/rule_variable_mapping.json"
-    )
-endmacro()
+	#    add_custom_command(
+	#OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/rule_variable_mapping.json"
+	#COMMAND env "PYTHONPATH=$ENV{PYTHONPATH}" "${Python_EXECUTABLE}" "${SSG_BUILD_SCRIPTS}/extract_rule_variable_mapping.py" "${PRODUCT}" "${CMAKE_BINARY_DIR}" "${CMAKE_CURRENT_BINARY_DIR}/rule_variable_mapping.json"
+	#DEPENDS generate-internal-templated-content-${PRODUCT} "${CMAKE_CURRENT_BINARY_DIR}/templated-content-${PRODUCT}"
+	#DEPENDS ${PRODUCT}-compile-all "${CMAKE_CURRENT_BINARY_DIR}/ssg_build_compile_all-${PRODUCT}"
+	#COMMENT "[${PRODUCT}-content] extracting rule-variable mapping"
+	#)
+	#add_custom_target(
+	#generate-${PRODUCT}-rule-variable-mapping
+	# DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/rule_variable_mapping.json"
+	#)
+	#endmacro()
 
 macro(ssg_collect_remediations PRODUCT LANGUAGES)
     set(REMEDIATION_TYPE_OPTIONS "")
