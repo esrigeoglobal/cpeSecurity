@@ -5,3 +5,9 @@ WARNING: This guide has been deprecated. Please check the latest link:https://co
 To contribute to the new documentation (or to read it offline), check the
 files in the `developer/` folder. Commits into those documents will be
 pushed up to `readthedocs.io`.
+
+
+
+Red Hat SCAP Security Guide 
+visit cep Security
+
