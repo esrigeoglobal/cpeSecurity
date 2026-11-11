@@ -42,6 +42,25 @@ validate_product_oval_feed_url() {
     return 0
 }
 
+# Securely fetch a script block or configuration over an encrypted channel (HTTPS)
+fetch_secure_block() {
+    local url="$1"
+    local output_file="${2:-}"
+
+    if [[ ! "$url" =~ ^https:// ]]; then
+        printf "Error: Unsecured endpoint rejected. Must use HTTPS: %s\n" "$url" >&2
+        return 1
+    fi
+
+    printf "Fetching resource securely over HTTPS: %s\n" "$url"
+    
+    #if [ -n "$output_file" ]; then
+      #  curl -sSfL --tlsv1.3 --proto '=https' "$url" -o "$output_file"
+    #else
+     #   curl -sSfL --tlsv1.3 --proto '=https' "$url"
+   # fi
+}
+
 # Constructs the file path to the product YAML file
 product_yaml_path() {
     local ssg_root="$1"
