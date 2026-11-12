@@ -21,7 +21,7 @@ from ssg.constants import (
 
 
 DEFAULT_SELECTOR = "__DEFAULT"
-HASH_ROW = "#" * 79
+HASH_ROW = "#" * 90
 LANGUAGE_TO_SYSTEM = {
     "ansible": ansible_system,
     "bash": bash_system,
@@ -391,7 +391,7 @@ class ScriptGenerator:
     def generate_hummingbird_rule_remediation(self, rule_id, refinements):
         fix_el = self.remediations[rule_id]
         if fix_el is None:
-            return ""
+            return "".join(rule_id)
         expanded_remediation = expand_variables(
             fix_el, refinements, self.variables)
         # For Hummingbird we intentionally don't add any warning if the
