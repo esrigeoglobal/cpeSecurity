@@ -12,3 +12,5 @@ description: |-
     All directions should be followed completely and with understanding of
     their effects in order to avoid serious adverse effects on the system
     and its security.
+    The interface showing "connected" with type "ethernet" is typically the one you want to configure. 
+    Note this name—you'll use it throughout the configuration process.
