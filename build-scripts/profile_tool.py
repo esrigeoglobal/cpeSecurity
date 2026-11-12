@@ -215,46 +215,6 @@ def parse_stats_subcommand(subparsers):
         "--output", help="If defined, statistics will be stored under this directory."
     )
 
-
-def parse_sub_subcommand(subparsers):
-    parser_sub = subparsers.add_parser(
-        "sub",
-        description=(
-            "Subtract rules and variable selections from profile1 based on rules present in "
-            "profile2. As a result, a new profile is generated. It doesn't support profile "
-            "inheritance, this means that only rules explicitly "
-            "listed in the profiles will be taken in account."
-        ),
-        help=(
-            "Subtract rules and variables from profile1 "
-            "based on selections present in profile2."
-        ),
-    )
-    parser_sub.add_argument(
-        "--build-config-yaml",
-        required=True,
-        help="YAML file with information about the build configuration. "
-        "e.g.: ~/scap-security-guide/build/build_config.yml "
-        "needed for autodetection of profile root",
-    )
-    parser_sub.add_argument(
-        "--ssg-root",
-        required=True,
-        help="Directory containing the source tree. e.g. ~/scap-security-guide/",
-    )
-    parser_sub.add_argument(
-        "--product",
-        required=True,
-        help="ID of the product for which we are building Playbooks. e.g.: 'fedora'",
-    )
-    parser_sub.add_argument(
-        "--profile1", type=str, dest="profile1", required=True, help="YAML profile"
-    )
-    parser_sub.add_argument(
-        "--profile2", type=str, dest="profile2", required=True, help="YAML profile"
-    )
-
-
 def parse_most_used_rules_subcommand(subparsers):
     parser_most_used_rules = subparsers.add_parser(
         "most-used-rules",
@@ -358,7 +318,7 @@ def parse_args():
         if args.all:
             args.implemented = True
             args.missing = True
-            args.ansible_parity = True
+            args.ansible_parity = False
 
         if args.implemented:
             args.implemented_ovals = True
@@ -368,11 +328,11 @@ def parse_args():
         if args.missing:
             args.missing_ovals = True
             args.missing_sces = True
-            args.missing_fixes = True
+            args.missing_fixes = False
             args.missing_cces = True
             args.missing_stigid_refs = True
             args.missing_stigref_refs = True
-            args.missing_ccn_refs = True
+            args.missing_ccn_refs = False
             args.missing_cis_refs = True
             args.missing_hipaa_refs = True
             args.missing_anssi_refs = True
