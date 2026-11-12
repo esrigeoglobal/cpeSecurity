@@ -10,11 +10,11 @@ description: |-
     the default value is for a regular OpenShift Cluster.
     This variable should be used in conjunction with ocp_version_yaml_path.
 
-type: string
+type: boolean
 
 operator: equals
 
-interactive: false
+interactive: true
 
 options:
     default: /apis/config.openshift.io/v1/clusteroperators/openshift-apiserver
